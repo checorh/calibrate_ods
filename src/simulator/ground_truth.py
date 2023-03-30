@@ -45,16 +45,5 @@ def run_ground_truth_and_parse(config, sim_setup):
 
     if sim_setup["objective"] == "counts":
         loop_file = "gt_out.xml"
-        df1 = parse_loop_data(config, loop_file)
-
-        df_output = df1.groupby(by=['EdgeID','interval_begin','interval_end'], as_index=False)\
-            .agg(
-            {
-                'interval_nVehContrib':np.sum, 
-                'interval_harmonicMeanSpeed':np.mean
-            }
-        )
-
+        df_output = parse_loop_data(config, loop_file)
         return df_output
-
-    # speeds across lanes are being averaged arithmetically not with harmonic mean
