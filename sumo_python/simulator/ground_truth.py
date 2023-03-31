@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 
-from calibrate_ods.src.helpers.parse_output import parse_loop_data
+from ..helpers.parse_output import parse_loop_data
 
 
 def run_ground_truth_and_parse(config, sim_setup):
