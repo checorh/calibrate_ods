@@ -43,15 +43,17 @@ def run_sumo(config,
         f"-b {sim_setup['start_sim_sec']} -e {sim_setup['end_sim_sec']} "
         # Load further descriptions from FILE(s)
         f"--additional-files {config['NETWORK']/sim_setup['add']} "
-        f"--duration-log.statistics "
+        #f"--duration-log.statistics "
         f"--xml-validation never "
         # Save single vehicle route info into FILE
         f"--vehroutes {config['NETWORK']}/routes.vehroutes.xml "
+        # Disables output of warnings
+        f"--no-warnings "
         )
         # f"--seed {seed}"
 
     try:
-        print(od2trips_cmd)
+        #print(od2trips_cmd)
         os.system(od2trips_cmd)
     except:
         print("Unable to create trips file")
